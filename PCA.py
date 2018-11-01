@@ -56,8 +56,6 @@ covA = cov_matrix(dataI)
 
 valsA, vecsA = numpy.linalg.eig(covA)
 
-print valsA
-
 xf=np.linspace(-100,100,valsA.size)
 
 
@@ -65,11 +63,17 @@ xf=np.linspace(-100,100,valsA.size)
 #    print "Autovalor", p+1, ":\n", valsA[p], "\n y su Autovector correspondiente es:\n", vecsA[p]
 
 
-for j in range(valsA.size):
-    max(valsA)
 
 #-------------Punto 2.4------------------
 
+
+#print valsA-----> Los autovalores mas altos estan al principio del array en este caso
+
+PC1=vecsA[0]
+PC2=vecsA[1]
+
+
+print "El componente principal 1 (PC1) es: \n", PC1, " \ny el componente principal 2 (PC2) es: \n", PC2
 
 
 #-------------Punto 2.5------------------
@@ -95,7 +99,7 @@ plt.plot(x, m*x, label='Cuarto Autovector')
 
 #-------------Punto 2.6------------------
 
-print ("el PCA es util por que si")
+print ("el PCA es util por que se pueden hayar que tan relacionados estan los tumores benignos y los malignos")
 
 
 

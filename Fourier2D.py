@@ -2,12 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import numpy.linalg
-import urllib2
-import time
 
-from scipy.fftpack import fft, fftfreq
-
-import pandas as pd
+from scipy.fftpack import fft, ifft
+from matplotlib.colors import LogNorm
 
 from PIL import Image
 
@@ -23,49 +20,57 @@ img = Image.open( filename + '.png' )
 data = np.array( img, dtype='uint8' )
 
 #print data
-#plt.imshow(data)
 
-'''
-np.save( filename + '.npy', data)
 
-# visually testing our output
-img_array = np.load(filename + '.npy')
-plt.imshow(img_array)
-'''
 #-------------Punto 4.2------------------
 #%%
 n= data.size
-fo = np.fft.fft2(data)
+fou = np.fft.fft2(data)
 
-
-
-frec= np.fft.fftfreq(n)
-print np.shape(data)
-print np.shape(fo)
-print np.shape(frec)
-
-#print fou
-
-print frec
+fou_changed = np.fft.fftshift(fou)
 
 plt.figure()
-plt.plot(abs(fo))
+plt.imshow(abs(fou_changed), norm=LogNorm())
+plt.colorbar()
+plt.title('transformada de Fourier 2D')
 
-'''
-fou_changed = np.fft.fftshift(fou)
-frec_changed = np.fft.fftshift(frec)
-
-
-plt.grid()
-#plt.xlim(-0.03,0.03)
-
-
+plt.savefig('CorralesAlejandro_FT2D.pdf')
 
 #-------------Punto 4.3------------------
 #%%
 
+foufiltrada = fou_changed.copy()
+
+for i in range(fou.shape[0]):
+    for j in range(fou.shape[1]):
+        if(abs(fou_changed[i,j])>100000):
+            foufiltrada[i,j]=0
+
+
 #-------------Punto 4.4------------------
+#%%
+plt.figure()
+plt.imshow(abs(foufiltrada), norm=LogNorm())
+plt.colorbar()
+plt.title('transformada de Fourier 2D filtrada')
+
 
 #-------------Punto 4.5------------------
+#%%
 
-'''
+inversa=np.fft.ifft2(foufiltrada).real
+
+print inversa
+
+plt.figure()
+plt.imshow(abs(inversa))
+plt.title('imagen corregida')
+plt.savefig('CorralesAlejandro_Imagen_filtrada.pdf')
+
+plt.figure()
+plt.imshow(data)
+
+
+
+
+
