@@ -10,7 +10,7 @@ from scipy.fftpack import fft, fftfreq
 import pandas as pd
 
 #-------------Punto 2.1------------------
-'''
+
 archivoDescargar = "http://ftp.cs.wisc.edu/math-prog/cpo-dataset/machine-learn/cancer/WDBC/WDBC.dat"
 archivoGuardar = "WDBC.dat"
 
@@ -27,7 +27,7 @@ ficheroGuardar.close()
 elapsed = time.time() - now
 
 print "Descargado el archivo: %s en %0.3fs" % (archivoDescargar,elapsed)
-'''
+
 #-------------Punto 2.2------------------
 
 
@@ -50,7 +50,7 @@ def cov_matrix(dataI):
 
 covA = cov_matrix(dataI)
 
-#########################################print covA
+print covA
 
 #-------------Punto 2.3------------------
 
@@ -59,8 +59,8 @@ valsA, vecsA = numpy.linalg.eig(covA)
 xf=np.linspace(-100,100,valsA.size)
 
 
-#for p in range(np.shape(dataI)[0]):
-#    print "Autovalor", p+1, ":\n", valsA[p], "\n y su Autovector correspondiente es:\n", vecsA[p]
+for p in range(np.shape(dataI)[0]):
+    print "Autovalor", p+1, ":\n", valsA[p], "\n y su Autovector correspondiente es:\n", vecsA[p]
 
 
 

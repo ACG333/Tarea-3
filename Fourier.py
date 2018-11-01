@@ -23,7 +23,7 @@ y= signal[:,1]
 
 plt.figure()
 plt.plot(x,y)
-############################plt.savefig('CorralesAlejandro_signal.pdf')
+plt.savefig('CorralesAlejandro_signal.pdf')
 
 
 
@@ -55,7 +55,7 @@ plt.plot(frec_changed,abs(fou_changed))
 plt.grid()
 plt.xlim(-0.03,0.03)
 
-##############################plt.savefig('CorralesAlejandro_TF.pdf')
+plt.savefig('CorralesAlejandro_TF.pdf')
 
 
 #-------------Punto 3.5------------------
@@ -79,7 +79,7 @@ plt.figure()
 plt.plot(frec_changed,abs(fou_changed))
 plt.grid()
 plt.xlim(-0.03,0.03)
-##############################plt.savefig('CorralesAlejandro__filtrada.pdf')
+plt.savefig('CorralesAlejandro__filtrada.pdf')
 
 #-------------Punto 3.7------------------
 

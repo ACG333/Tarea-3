@@ -12,14 +12,14 @@ from PIL import Image
 #%%
 
 
-#from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 
 filename = 'Arboles'
 
 img = Image.open( filename + '.png' )
 data = np.array( img, dtype='uint8' )
 
-#print data
+print data
 
 
 #-------------Punto 4.2------------------
