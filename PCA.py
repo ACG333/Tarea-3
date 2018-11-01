@@ -77,30 +77,24 @@ print "El componente principal 1 (PC1) es: \n", PC1, " \ny el componente princip
 
 
 #-------------Punto 2.5------------------
-'''
+
+PC11=[]
+PC22=[]
+
+for i in range(len(data)):
+    A1=np.dot(d[i],PC1)
+    A2=np.dot(d[i],PC2)
+    PC11.append(A1)
+    PC22.append(A2)
+
 plt.figure()
-#plt.scatter(dataI[21,:], dataI[12,:], alpha=0.3)
-x = np.linspace(-100,100, 10)
-#primer autovector
-m = vecsA[1,0]/vecsA[0,0]
-plt.plot(x, m*x, label='Primer Autovector')
-
-#segundo autovector
-m = vecsA[1,1]/vecsA[0,1]
-plt.plot(x, m*x, label='Segundo Autovector')
-
-#primer autovector
-m = vecsA[1,2]/vecsA[0,2]
-plt.plot(x, m*x, label='Tercer Autovector')
-
-#segundo autovector
-m = vecsA[1,3]/vecsA[0,3]
-plt.plot(x, m*x, label='Cuarto Autovector')
+plt.scatter(PC11, PC22, alpha=0.3)
+plt.title("PCA")
+plt.xlabel("PC1")
+plt.ylabel("PC2")
 
 #-------------Punto 2.6------------------
 
 print ("el PCA es util por que se pueden hayar que tan relacionados estan los tumores benignos y los malignos")
 
 
-
-'''
